@@ -36,6 +36,7 @@
 // export default App;
 import "./App.css";
 import Card from "./components/Card";
+import UserCard from "./components/UserCard";
 
 const data = [
   {
@@ -64,6 +65,25 @@ const data = [
   },
 ];
 
+const userData = [
+  {
+    name: "Suyash Pratap Singh",
+    age: 21,
+    designation: "Full Stack Dev",
+    url: "https://cdn5.vectorstock.com/i/1000x1000/51/99/icon-of-user-avatar-for-web-site-or-mobile-app-vector-3125199.jpg",
+  },
+  {
+    name: "Saksham Singh",
+    age: 21,
+    designation: "Full Stack Dev",
+    url: "https://cdn5.vectorstock.com/i/1000x1000/51/99/icon-of-user-avatar-for-web-site-or-mobile-app-vector-3125199.jpg",
+  },
+  {
+    name: "Ekansh Jain",
+    age: 21,
+    designation: "Full Stack Dev",
+  },
+];
 function App() {
   const title = "Hey! lets get goin xD....";
   return (
@@ -75,6 +95,16 @@ function App() {
           return (
             <div className="col-12 col-sm-6 col-md-4 p-3">
               <Card values={val} />
+            </div>
+          );
+        })}
+        {/* <UserCard {...userData} /> */}
+      </div>
+      <div className="row">
+        {userData.map((val) => {
+          return (
+            <div className="col-12 col-sm-6 p-3">
+              <UserCard {...val} />
             </div>
           );
         })}
