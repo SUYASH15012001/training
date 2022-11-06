@@ -19,8 +19,14 @@
 // export default Card;
 
 import React, { Component } from "react";
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
 
-class Card extends Component {
+class ProductCard extends Component {
   constructor(props) {
     super(props);
 
@@ -49,33 +55,40 @@ class Card extends Component {
         };
       });
     };
-    // if (this.state.showImage) return <h1>Hello</h1>;
-
     return (
-      <div class="card">
+      <Card raised style={{ margin: 10 }}>
         {this.state.showImage ? (
-          <img src={url} class="card-img-top img-flex" alt="..." />
+          <CardMedia component="img" alt="green iguana" image={url} />
         ) : (
-          <h3>Not showing the image as of now</h3>
+          <Typography variant="caption" style={{ marginLeft: "5%" }}>
+            Not showing the image as of now, although the id is {_id}
+          </Typography>
         )}
-        <div class="card-body">
-          <h5 class="card-title">{prodName}</h5>
-          <p class="card-text">{desc}</p>
-          <button class="btn btn-primary" onClick={handleClick}>
-            Press to show Image
-          </button>
-          <br />
-          <br />
-          <button onClick={handleAdd} className="btn btn-info ml-5">
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            {prodName}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            {desc}
+          </Typography>
+        </CardContent>
+        <CardActions>
+          <Button size="small" variant="contained" onClick={handleAdd}>
             {this.state.inCart === 0
               ? "Add to cart"
               : `${this.state.inCart} added, press to add more`}
-            {/* to write varibales in a string use ``  */}
-          </button>
-        </div>
-      </div>
+          </Button>
+          <Button
+            size="small"
+            variant="contained"
+            color="secondary"
+            onClick={handleClick}>
+            Show Image
+          </Button>
+        </CardActions>
+      </Card>
     );
   }
 }
 
-export default Card;
+export default ProductCard;

@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Card from "../components/Card";
+import ProductCard from "../components/ProductCard";
 import UserCard from "../components/UserCard";
+import { Grid } from "@mui/material";
 
 const userData = [
   {
@@ -57,32 +58,35 @@ function Home(props) {
   // console.log(useParams());
   console.log(window.location);
   return (
-    <div className="container">
+    <>
       <Link to="/about">Go to about</Link>
       <h1>{dummy.title}</h1>
       <br />
-      <div className="row">
+      <Grid container>
         {data.map((val) => {
           return (
-            <div
-              key={val._id.toString()}
-              className="col-12 col-sm-6 col-md-4 p-3">
-              <Card values={val} />
-            </div>
+            <Grid
+              item
+              xs={12}
+              sm={6}
+              md={4}
+              // spacing={3}
+              key={val._id.toString()}>
+              <ProductCard values={val} />
+            </Grid>
           );
         })}
-        {/* <UserCard {...userData} /> */}
-      </div>
-      <div className="row">
+      </Grid>
+      <Grid container>
         {userData.map((val) => {
           return (
-            <div className="col-12 col-sm-6 p-3">
+            <Grid item xs={12} sm={6}>
               <UserCard {...val} />
-            </div>
+            </Grid>
           );
         })}
-      </div>
-    </div>
+      </Grid>
+    </>
   );
 }
 

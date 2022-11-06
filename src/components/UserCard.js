@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-
+import { Paper, Grid, Typography, Avatar } from "@mui/material";
 // normal declaration
 // function UserCard({ name, designation, age, url }) {
 
@@ -17,32 +17,26 @@ const UserCard = ({ name, designation, age, url, _id }) => {
   // if (window.location.pathname === "/about")
   //   return <h2 onClick={handleNavigate}>Hello world</h2>;
   return (
-    <div
-      onClick={handleNavigate}
-      class="card mb-3"
-      style={{
-        maxHeight: 540,
-      }}>
-      <div class="row g-0">
-        <div class="col-md-2">
-          <img
-            src={url || "logo512.png"}
-            style={{ maxHeight: 200 }}
-            class="img-fluid rounded-start"
-            alt="..."
-          />
-        </div>
-        <div class="col-md-10">
-          <div class="card-body">
-            <h5 class="card-title">{name}</h5>
-            <p class="card-text">{designation}</p>
-            <p class="card-text">
-              <small class="text-muted">{age}</small>
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
+    <Paper onClick={handleNavigate} style={{ padding: 20, margin: 10 }}>
+      <Grid container>
+        <Grid item xs={12} sm={3}>
+          {url ? (
+            <Avatar style={{ height: 100, width: 100 }} src={url} />
+          ) : (
+            <Avatar style={{ height: 100, width: 100, fontSize: 50 }}>
+              {name[0]}
+            </Avatar>
+          )}
+        </Grid>
+        <Grid item xs={12} sm={9}>
+          <Typography variant="h4">{name}</Typography>
+          <Typography variant="subtitle1">{designation}</Typography>
+          <Typography variant="caption" color="GrayText">
+            {age}
+          </Typography>
+        </Grid>
+      </Grid>
+    </Paper>
   );
 };
 
