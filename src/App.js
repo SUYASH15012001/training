@@ -35,81 +35,27 @@
 
 // export default App;
 import "./App.css";
-import Card from "./components/Card";
-import UserCard from "./components/UserCard";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./routes/Home";
+import About from "./routes/About";
+import Error404 from "./routes/Error404";
+import UserDetails from "./routes/UserDetails";
 
-const data = [
-  {
-    url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png",
-    prodName: "Random",
-    _id: 1,
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis incidunt molestias a nostrum assumenda qui quis dolorem quasi sint praesentium porro quo expedita sunt vero neque, quod veniam iste laboriosam?",
-  },
-  {
-    url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png",
-    prodName: "Bawaal",
-    _id: 2,
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis incidunt molestias a nostrum assumenda qui quis dolorem quasi sint praesentium porro quo expedita sunt vero neque, quod veniam iste laboriosam?",
-  },
-  {
-    url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png",
-    prodName: "Happy man",
-    _id: 3,
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis incidunt molestias a nostrum assumenda qui quis dolorem quasi sint praesentium porro quo expedita sunt vero neque, quod veniam iste laboriosam?",
-  },
-  {
-    url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png",
-    prodName: "Title 4",
-    _id: 4,
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis incidunt molestias a nostrum assumenda qui quis dolorem quasi sint praesentium porro quo expedita sunt vero neque, quod veniam iste laboriosam?",
-  },
-];
-
-const userData = [
-  {
-    name: "Suyash Pratap Singh",
-    age: 21,
-    designation: "Full Stack Dev",
-    url: "https://cdn5.vectorstock.com/i/1000x1000/51/99/icon-of-user-avatar-for-web-site-or-mobile-app-vector-3125199.jpg",
-  },
-  {
-    name: "Saksham Singh",
-    age: 21,
-    designation: "Full Stack Dev",
-    url: "https://cdn5.vectorstock.com/i/1000x1000/51/99/icon-of-user-avatar-for-web-site-or-mobile-app-vector-3125199.jpg",
-  },
-  {
-    name: "Ekansh Jain",
-    age: 21,
-    designation: "Full Stack Dev",
-  },
-];
 function App() {
-  const title = "Hey! lets get goin xD....";
   return (
-    <div className="container">
-      <h1>{title}</h1>
-      <br />
-      <div className="row">
-        {data.map((val, i) => {
-          return (
-            <div className="col-12 col-sm-6 col-md-4 p-3">
-              <Card values={val} />
-            </div>
-          );
-        })}
-        {/* <UserCard {...userData} /> */}
-      </div>
-      <div className="row">
-        {userData.map((val) => {
-          return (
-            <div className="col-12 col-sm-6 p-3">
-              <UserCard {...val} />
-            </div>
-          );
-        })}
-      </div>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="*" element={<Error404 />} />
+        <Route path="/userDetails/:id" element={<UserDetails />} />
+        {/* <Route path="/" element={<h1>Page</h1>}>
+          <Route index element={<Home />} />
+          <Route path="about" element={<h1>Aboout</h1>} />
+          <Route path="*" element={<NoPage />} />
+        </Route> */}
+      </Routes>
+    </BrowserRouter>
   );
 }
 

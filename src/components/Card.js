@@ -30,7 +30,6 @@ class Card extends Component {
     };
   }
   render() {
-    console.log("logged via this", this.props);
     const { _id, desc, url, prodName } = this.props.values;
 
     const handleClick = () => {
@@ -51,6 +50,7 @@ class Card extends Component {
       });
     };
     // if (this.state.showImage) return <h1>Hello</h1>;
+
     return (
       <div class="card">
         {this.state.showImage ? (
