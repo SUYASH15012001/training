@@ -1,8 +1,22 @@
 import React from 'react';
 import {
-    TextField, Grid, FormGroup, FormControlLabel, FormLabel,
-    Checkbox, RadioGroup, Radio, FormControl
+    TextField,
+    Grid,
+    FormGroup,
+    FormControlLabel,
+    FormLabel,
+    Checkbox,
+    RadioGroup,
+    Radio,
+    FormControl,
+    Select,
+    InputLabel,
+    MenuItem,
+    Switch
 } from '@mui/material';
+
+import Badge from '@mui/material/Badge';
+import MailIcon from '@mui/icons-material/Mail';
 import SportsCricketOutlinedIcon from '@mui/icons-material/SportsCricketOutlined';
 import SportsCricketIcon from '@mui/icons-material/SportsCricket';
 
@@ -20,7 +34,8 @@ function Signup() {
     // const [username, setUserName] = React.useState("");
     const [textData, setTextData] = React.useState({
         username: "",
-        about:""
+        about: "",
+        age: ""
     })
     const handleChangeTextData = (e) => {
         console.log(textData)
@@ -64,6 +79,16 @@ function Signup() {
                         label="Sports" />
                 </FormGroup>
             </Grid>
+            
+            <Grid item xs={12} sm={6} md={4}>
+                <Badge badgeContent={4} color="primary">
+                    <MailIcon color="action" />
+                </Badge>
+                <br />
+                <FormControlLabel control={<Switch color='secondary' checked={isChecked} onChange={handleCheck} />}
+                    label="Wanna work?" />
+                
+            </Grid>
             <Grid item xs={12} md={6}>
                 <TextField
                     id="about"
@@ -78,6 +103,23 @@ function Signup() {
                     defaultValue="About........"
                     variant="outlined"
                 />
+            </Grid>
+            <Grid item xs={12} md={6}>
+                <FormControl fullWidth>
+                    <InputLabel id="demo-simple-select-label">Age</InputLabel>
+                    <Select
+                        labelId="demo-simple-select-label"
+                        id="demo-simple-select"
+                        value={textData.age}
+                        label="Age"
+                        name="age"
+                        onChange={handleChangeTextData}
+                    >
+                        <MenuItem value={10}>Ten</MenuItem>
+                        <MenuItem value={20}>Twenty</MenuItem>
+                        <MenuItem value={30}>Thirty</MenuItem>
+                    </Select>
+                </FormControl>
             </Grid>
             <Grid item xs={12} md={6}>
                 

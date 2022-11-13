@@ -41,16 +41,20 @@ import About from "./routes/About";
 import Error404 from "./routes/Error404";
 import UserDetails from "./routes/UserDetails";
 import Signup from "./routes/Signup";
+import Rough from "./routes/Rough";
+import Header from "./components/Header";
 
 function App() {
   return (
     <BrowserRouter>
+      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="*" element={<Error404 />} />
         <Route path="/userDetails/:id" element={<UserDetails />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/r" element={<Rough />} />
         {/* <Route path="/" element={<h1>Page</h1>}>
           <Route index element={<Home />} />
           <Route path="about" element={<h1>Aboout</h1>} />
