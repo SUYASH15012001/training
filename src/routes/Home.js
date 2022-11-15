@@ -4,25 +4,25 @@ import ProductCard from "../components/ProductCard";
 import UserCard from "../components/UserCard";
 import { Grid } from "@mui/material";
 
-const userData = [
-  {
-    name: "Suyash Pratap Singh",
-    age: 21,
-    designation: "Full Stack Dev",
-    url: "https://cdn5.vectorstock.com/i/1000x1000/51/99/icon-of-user-avatar-for-web-site-or-mobile-app-vector-3125199.jpg",
-  },
-  {
-    name: "Saksham Singh",
-    age: 21,
-    designation: "Full Stack Dev",
-    url: "https://cdn5.vectorstock.com/i/1000x1000/51/99/icon-of-user-avatar-for-web-site-or-mobile-app-vector-3125199.jpg",
-  },
-  {
-    name: "Ekansh Jain",
-    age: 21,
-    designation: "Full Stack Dev",
-  },
-];
+// const userData = [
+//   {
+//     name: "Suyash Pratap Singh",
+//     age: 21,
+//     designation: "Full Stack Dev",
+//     url: "https://cdn5.vectorstock.com/i/1000x1000/51/99/icon-of-user-avatar-for-web-site-or-mobile-app-vector-3125199.jpg",
+//   },
+//   {
+//     name: "Saksham Singh",
+//     age: 21,
+//     designation: "Full Stack Dev",
+//     url: "https://cdn5.vectorstock.com/i/1000x1000/51/99/icon-of-user-avatar-for-web-site-or-mobile-app-vector-3125199.jpg",
+//   },
+//   {
+//     name: "Ekansh Jain",
+//     age: 21,
+//     designation: "Full Stack Dev",
+//   },
+// ];
 const data = [
   {
     url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png",
@@ -55,8 +55,8 @@ function Home(props) {
     title: "Dummy title",
   };
   //  useParams();
-  // console.log(useParams());
-  console.log(window.location);
+  console.log(props);
+  // console.log(window.location);
   return (
     <>
       <Link to="/about">Go to about</Link>
@@ -78,10 +78,10 @@ function Home(props) {
         })}
       </Grid>
       <Grid container>
-        {userData.map((val) => {
+        {props.userData.map((val, ind) => {
           return (
             <Grid item xs={12} sm={6}>
-              <UserCard {...val} />
+              <UserCard {...val} ind={ind} />
             </Grid>
           );
         })}

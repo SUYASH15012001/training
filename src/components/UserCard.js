@@ -5,11 +5,12 @@ import { Paper, Grid, Typography, Avatar } from "@mui/material";
 // function UserCard({ name, designation, age, url }) {
 
 // arrow decalration
-const UserCard = ({ name, designation, age, url, _id }) => {
+const UserCard = ({ name, designation, age, url, _id, socialMedia, ind }) => {
   // console.log(window.location.pathname, window.location.pathname === "/about");
   let navigator = useNavigate();
+  // console.log(ind);
   const handleNavigate = () => {
-    navigator(`/userDetails/${_id}`);
+    navigator(`/userDetails/${ind}`);
     // console.log(window.location.pathname);
     // if (window.location.pathname === "/about") navigator("/");
     // else navigator("/about");

@@ -45,14 +45,57 @@ import Rough from "./routes/Rough";
 import Header from "./components/Header";
 
 function App() {
+  const userData = [
+    {
+      name: "Suyash Pratap Singh",
+      age: 21,
+      designation: "Full Stack Dev",
+      url: "https://cdn5.vectorstock.com/i/1000x1000/51/99/icon-of-user-avatar-for-web-site-or-mobile-app-vector-3125199.jpg",
+      socialMedia: {
+        fb: "https://www.google.co.in/",
+        google: "https://www.google.co.in/",
+        ig: "https://www.google.co.in/",
+        ld: "https://www.google.co.in/",
+      },
+      _id: "1",
+    },
+    {
+      name: "Saksham Singh",
+      age: 21,
+      designation: "Full Stack Dev",
+      url: "https://cdn5.vectorstock.com/i/1000x1000/51/99/icon-of-user-avatar-for-web-site-or-mobile-app-vector-3125199.jpg",
+      socialMedia: {
+        fb: "https://www.google.co.in/",
+        google: "https://www.google.co.in/",
+        ig: "https://www.google.co.in/",
+        ld: "https://www.google.co.in/",
+      },
+      _id: "2",
+    },
+    {
+      name: "Ekansh Jain",
+      age: 21,
+      designation: "Full Stack Dev",
+      socialMedia: {
+        fb: "https://www.google.co.in/",
+        google: "https://www.google.co.in/",
+        ig: "https://www.google.co.in/",
+        ld: "https://www.google.co.in/",
+      },
+      _id: "3",
+    },
+  ];
   return (
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home userData={userData} />} />
         <Route path="/about" element={<About />} />
         <Route path="*" element={<Error404 />} />
-        <Route path="/userDetails/:id" element={<UserDetails />} />
+        <Route
+          path="/userDetails/:id"
+          element={<UserDetails entireUserDatabase={userData} />}
+        />
         <Route path="/signup" element={<Signup />} />
         <Route path="/r" element={<Rough />} />
         {/* <Route path="/" element={<h1>Page</h1>}>
