@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import ProductCard from "../components/ProductCard";
 import UserCard from "../components/UserCard";
 import { Grid } from "@mui/material";
+import TestComp from "../components/TestComp";
 
 // const userData = [
 //   {
@@ -59,6 +60,7 @@ function Home(props) {
   // console.log(window.location);
   return (
     <>
+      <TestComp />
       <Link to="/about">Go to about</Link>
       <h1>{dummy.title}</h1>
       <br />
